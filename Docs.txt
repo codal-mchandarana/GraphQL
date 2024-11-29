@@ -1,0 +1,43 @@
+Graph QL (resource :- graphql.org)
+
+one single endpoint --> POSR/graphql
+
+1)  POST/graphql
+
+----> query -> for retriving data
+----> mutation -> for manipulate data
+----> subscription -> set up realtime connection via websockets
+
+2) 
+ 
+  a) Type Definition
+  b) Similar like routes
+      query defintions 
+      mutation defintions
+      subscription defintions 
+  c) Similar like controller
+      Resolvers (contain your server-side logic)
+
+3) How does Graph Ql work
+
+  -> it's a normal node
+  -> one single endpoint
+  -> Uses post because request body defines data structure of retrieved data
+  -> Server-side resolver analyses request body , fetches and prepares and Return Data
+
+4) Another way to use graphql query
+
+----> const graphqlquery = {
+        query:`
+          mutation UpdateUserStatus($userStatus:String){   --> this is user define name 
+            updateStatus(status:$userStatus){              ---> this is the actual name of graphql
+              status
+            }
+          }
+        `,
+        variables:{
+          userStatus:"user-status"
+        }
+      }
+
+Same for query but the change is instead of mutation make it query
